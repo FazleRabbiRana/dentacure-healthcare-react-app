@@ -23,8 +23,10 @@ This demo is about a dental clinic.
 
 ### `data`
 
-Data used from custom `dental-services.json` file in `public` folder.\
-External link for the data is available too. [JSON data link](#)
+Data used from custom `dental-services.json` and `dental-doctors.json` file in `public/data` folder. 
+External link for the data is available too.\ 
+Dental services [JSON data link](https://github.com/FazleRabbiRana/dentacure-project-data/blob/main/dental-services-data/dental-services.json) \
+Dentists [JSON data link](https://github.com/FazleRabbiRana/dentacure-project-data/blob/main/dental-doctors-data/dental-doctors.json)
 
 ### `icons`
 

@@ -5,9 +5,11 @@
 @layer base {
   @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Poppins:wght@300;400;500;600;700&display=swap');
   :root {
-    --clr-primary: #1c4ca5;
+    /* --clr-primary: #1c4ca5; */
+    --clr-primary: #245cc3;
     --clr-primary-light: #4D93E9;
-    --clr-primary-dark: #17449e;
+    /* --clr-primary-dark: #17449e; */
+    --clr-primary-dark: #103a8f;
     --clr-black: #353535;
     --clr-gray: #757575;
     --clr-blue: #abcbff;
@@ -27,12 +29,12 @@
     @apply w-40 md:w-56;
   }
   .btn-regular {
-    @apply inline-block py-3 px-6 text-sm font-semibold text-white bg-my-primary-light duration-300 hover:bg-my-primary-dark;
+    @apply cursor-pointer inline-block py-3 px-6 text-sm font-semibold text-white bg-my-primary-light duration-300 hover:bg-my-primary-dark;
   }
   .btn-regular-pill {
-    @apply inline-block py-3 px-8 rounded-full text-sm font-semibold uppercase tracking-tiny text-white bg-my-primary-dark duration-300 hover:bg-my-primary;
+    @apply cursor-pointer inline-block py-3 px-6 rounded-full text-sm font-semibold uppercase tracking-tiny text-white bg-my-primary-dark duration-300 hover:bg-my-primary;
   }
   .btn-gradient-pill {
-    @apply inline-block py-3 px-8 rounded-full text-sm font-semibold uppercase tracking-tiny text-white bg-gradient-to-r from-my-gradient-stop-dark to-my-gradient-stop-light duration-200 hover:text-gray-300;
+    @apply cursor-pointer inline-block py-3 px-6 rounded-full text-sm font-semibold uppercase tracking-tiny text-white bg-gradient-to-r from-my-gradient-stop-dark to-my-gradient-stop-light duration-200 hover:text-gray-300;
   }
 }
