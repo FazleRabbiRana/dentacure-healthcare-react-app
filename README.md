@@ -13,7 +13,7 @@ Here is a brief about this project:
 
 ### `built with`
 
-This project is built with ReactJS. \ 
+This project is built with ReactJS. \
 Tailwind CSS is used for this project.
 
 ### `purpose`
@@ -24,7 +24,8 @@ This demo is about a dental clinic.
 ### `data`
 
 Data used from custom `dental-services.json` and `dental-doctors.json` file in `public/data` folder. 
-External link for the data is available too. \ 
+External link for the data is available too. \
+
 Dental services [JSON data link](https://github.com/FazleRabbiRana/dentacure-project-data/blob/main/dental-services-data/dental-services.json) \
 Dentists [JSON data link](https://github.com/FazleRabbiRana/dentacure-project-data/blob/main/dental-doctors-data/dental-doctors.json)
 
