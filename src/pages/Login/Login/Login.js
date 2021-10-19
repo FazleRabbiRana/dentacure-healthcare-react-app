@@ -4,7 +4,7 @@ import useAuth from '../../../hooks/useAuth';
 import DirectSignIn from '../DirectSignIn/DirectSignIn';
 
 const Login = () => {
-	const { loginUsingEmailPassword, user, authError } = useAuth();
+	const { handleEmailChange, handlePasswordChange, loginUsingEmailPassword, user, authError } = useAuth();
 
 	const handleLoginFormSubmit = e => {
 		e.preventDefault();
@@ -17,16 +17,18 @@ const Login = () => {
 				<div className="max-w-md mx-auto text-center px-4 py-8 bg-gray-100 rounded-lg text-sm">
 					<h2 className="mb-8 text-3xl text-my-primary">Login</h2>
 	
-					<form onSubmit={handleLoginFormSubmit} className="flex flex-col space-y-4">
+					<form onSubmit={handleLoginFormSubmit} className="flex flex-col space-y-4 text-my-black">
 						<input 
 							type="email" 
 							placeholder="Your email"
 							className="w-full h-11 px-4 bg-white rounded" 
+							onBlur={handleEmailChange}
 						/>
 						<input 
 							type="password" 
 							placeholder="Your password"
 							className="w-full h-11 px-4 bg-white rounded" 
+							onBlur={handlePasswordChange} 
 						/>
 						<input 
 							type="submit" 

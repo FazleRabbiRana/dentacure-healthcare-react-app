@@ -1,18 +1,14 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import DirectSignIn from '../DirectSignIn/DirectSignIn';
 
 const Register = () => {
 	const { handleUserNameChange, handleEmailChange, handlePasswordChange, registerWithEmailPassword, user, authError } = useAuth();
 
-	const history = useHistory();
-
 	const handleFormSubmit = e => {
 		e.preventDefault();
 		registerWithEmailPassword();
-		window.location.reload();
-		history.push('/home');
 	}
 
 	return (

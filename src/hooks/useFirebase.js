@@ -43,7 +43,6 @@ const useFirebase = () => {
 		signInWithEmailAndPassword(auth, email, password)
 			.then(result => {
 				console.log(result.user);
-				setUser(result.user);
 				setAuthError('');
 			})
 			.catch(error => {
