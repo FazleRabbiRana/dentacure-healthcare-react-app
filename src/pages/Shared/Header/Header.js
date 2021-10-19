@@ -16,7 +16,7 @@ const Header = () => {
 			<div className="container flex items-center justify-between md:space-x-8">
 				<div className="logo flex-shrink-0">
 					<Link exact to="/" className="block">
-						<img src={logo} alt="DetaCure logo" />
+						<img src={logo} alt="DentaCure logo" />
 					</Link>
 				</div>
 				<button onClick={handleActiveToggle} className="menu-toggler ml-8 md:hidden">

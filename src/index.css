@@ -5,10 +5,8 @@
 @layer base {
   @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Poppins:wght@300;400;500;600;700&display=swap');
   :root {
-    /* --clr-primary: #1c4ca5; */
     --clr-primary: #245cc3;
     --clr-primary-light: #4D93E9;
-    /* --clr-primary-dark: #17449e; */
     --clr-primary-dark: #103a8f;
     --clr-black: #353535;
     --clr-gray: #757575;
