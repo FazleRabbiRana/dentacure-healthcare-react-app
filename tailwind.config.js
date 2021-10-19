@@ -25,9 +25,21 @@ module.exports = {
       letterSpacing: {
         'tiny': '1px',
       },
+      minHeight: {
+        'screen-80': '75vh',
+        '300px': '300px',
+      },
+      zIndex: {
+        '1p': '1',
+        '1n': '-1',
+      },
       maxWidth: {
         'clear': 'calc(100% - 2rem)',
-      }
+      },
+      boxShadow: {
+        'my-shadow-dark': '0 6px 20px 0 rgba(0, 0, 0, 0.1)',
+        'my-shadow-left': '-2px 3px 20px 0 rgba(0, 0, 0, 0.1)',
+      },
     },
   },
   variants: {
