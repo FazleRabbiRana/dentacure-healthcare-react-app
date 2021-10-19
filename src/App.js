@@ -5,6 +5,7 @@ import Contact from './pages/Contact/Contact';
 import Gallery from './pages/Gallery/Gallery';
 import Home from './pages/Home/Home/Home';
 import Login from './pages/Login/Login/Login';
+import PrivateRoute from './pages/Login/PrivateRoute/PrivateRoute';
 import Register from './pages/Login/Register/Register';
 import NotFound from './pages/NotFound/NotFound';
 import ServiceDetail from './pages/ServiceDetail/ServiceDetail';
@@ -25,15 +26,15 @@ function App() {
               <Route path="/home">
                 <Home />
               </Route>
-              <Route path="/service/:serviceId">
+              <PrivateRoute path="/service/:serviceId">
                 <ServiceDetail />
-              </Route>
-              <Route path="/gallery">
+              </PrivateRoute>
+              <PrivateRoute path="/gallery">
                 <Gallery />
-              </Route>
-              <Route path="/contact">
+              </PrivateRoute>
+              <PrivateRoute path="/contact">
                 <Contact />
-              </Route>
+              </PrivateRoute>
               <Route path="/login">
                 <Login />
               </Route>

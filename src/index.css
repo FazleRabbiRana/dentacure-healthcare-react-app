@@ -38,7 +38,7 @@
     @apply cursor-pointer inline-block py-3 px-6 rounded-full text-sm font-semibold uppercase tracking-tiny text-white bg-gradient-to-r from-my-gradient-stop-dark to-my-gradient-stop-light duration-200 hover:text-gray-300;
   }
   .main-nav {
-    @apply flex-auto flex flex-col md:flex-row md:items-center md:justify-end md:space-x-4 lg:space-x-6 md:space-y-0 space-y-4 -mt-px md:mt-0 w-56 md:w-auto max-w-clear p-6 md:p-0 bg-gray-100 md:bg-transparent shadow-my-shadow-left md:shadow-none z-40 fixed md:static top-14 right-0 opacity-0 md:opacity-100;
+    @apply flex-auto flex flex-col md:flex-row md:items-center md:justify-end md:space-x-4 lg:space-x-6 md:space-y-0 space-y-4 -mt-px md:mt-0 w-56 md:w-auto max-w-clear p-6 md:p-0 bg-gray-100 md:bg-transparent shadow-my-shadow-left md:shadow-none z-40 fixed md:static top-14 -right-full opacity-0 md:opacity-100 duration-500;
   }
   .group:hover .rotate-y-360-group-hover {
     transform: rotateY(360deg);

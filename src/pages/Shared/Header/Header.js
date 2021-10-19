@@ -9,7 +9,7 @@ const Header = () => {
 		color: 'var(--clr-primary)',
 	}
 
-	const { user, logOut } = useAuth();
+	const { user, logOut, handleActiveToggle, activeToggle } = useAuth();
 
 	return (
 		<header className="navbar py-2 md:py-4 bg-gray-50 shadow-sm z-20 sticky top-0">
@@ -19,10 +19,10 @@ const Header = () => {
 						<img src={logo} alt="DetaCure logo" />
 					</Link>
 				</div>
-				<button className="menu-toggler ml-8 md:hidden">
+				<button onClick={handleActiveToggle} className="menu-toggler ml-8 md:hidden">
 					<img src={menuIcon} alt="Menu toggler" className="w-6" />
 				</button>
-				<nav className="main-nav">
+				<nav className={!activeToggle ? 'main-nav' : 'main-nav right-0 opacity-100'}>
 					<NavLink 
 						to="/home"
 						activeStyle={navLinkActiveStyle}
@@ -48,7 +48,7 @@ const Header = () => {
 						{
 							(user.displayName || user.email) ? (
 								<>
-									<p className="font-semibold text-sm text-my-black mr-2 md:ml-3 w-full md:w-auto border-b border-my-primary">
+									<p className="inline-block font-semibold text-sm text-my-black mr-2 md:ml-3 w-full md:w-auto border-b border-my-primary mb-2 md:mb-0">
 										{user.displayName ? user.displayName : 'Anonymous'}
 									</p>
 									<button

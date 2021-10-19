@@ -35,15 +35,23 @@ module.exports = {
       },
       maxWidth: {
         'clear': 'calc(100% - 2rem)',
+        '4/12': 'calc(100% / 3)',
       },
       boxShadow: {
         'my-shadow-dark': '0 6px 20px 0 rgba(0, 0, 0, 0.1)',
         'my-shadow-left': '-2px 3px 20px 0 rgba(0, 0, 0, 0.1)',
       },
+      scale: {
+        '200': '2',
+      },
+      transformOrigin: {
+        'center-left': 'center left',
+      }
     },
   },
   variants: {
     extend: {
+      scale: ['active', 'group-hover'],
       visibility: ['hover', 'focus', 'group-hover', 'group-focus'],
     },
   },

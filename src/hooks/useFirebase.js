@@ -10,7 +10,8 @@ const useFirebase = () => {
 	const [password, setPassword] = useState('');
 	const [user, setUser] = useState({});
 	const [authError, setAuthError] = useState('');
-	// const [isLoading, setIsLoading] = useState(true);
+	const [isLoading, setIsLoading] = useState(true);
+	const [activeToggle, setActiveToggle] = useState(false);
 
 	const auth = getAuth();
 	const googleProvider = new GoogleAuthProvider();
@@ -40,6 +41,7 @@ const useFirebase = () => {
 
 	// process login using email and password
 	const loginUsingEmailPassword = () => {
+		setIsLoading(true);
 		signInWithEmailAndPassword(auth, email, password)
 			.then(result => {
 				console.log(result.user);
@@ -48,6 +50,9 @@ const useFirebase = () => {
 			.catch(error => {
 				console.log(error);
 				setAuthError(error.message);
+			})
+			.finally(() => {
+				setIsLoading(false);
 			});
 	}
 
@@ -99,6 +104,8 @@ const useFirebase = () => {
 				console.log(error);
 				setAuthError(error.message);
 			});
+
+		// return signInWithPopup(auth, googleProvider);
 	}
 
 	// observe user auth status
@@ -109,20 +116,31 @@ const useFirebase = () => {
 			} else {
 				setUser({});
 			}
+			setIsLoading(false);
 		});
-		return unsubscribed;
+		return () => unsubscribed;
 	}, []);
 
 	// logout
 	const logOut = () => {
+		setIsLoading(true);
 		signOut(auth)
 			.then(() => {
 				setUser({})
+				setAuthError('');
 			})
 			.catch(error => {
 				console.log(error);
 				setAuthError(error.message);
 			})
+			.finally(() => {
+				setIsLoading(false);
+			});
+	}
+
+	// handle mobile menu toggle
+	const handleActiveToggle = () => {
+		setActiveToggle(!activeToggle);
 	}
 
 	return {
@@ -134,7 +152,10 @@ const useFirebase = () => {
 		signInUsingGoogle,
 		user,
 		authError,
+		isLoading,
 		logOut,
+		activeToggle,
+		handleActiveToggle,
 	}
 }
 
