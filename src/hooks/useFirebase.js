@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAuth, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, GithubAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
 import initializeFirebaseAuthentication from "../pages/Login/Firebase/firebase.init";
 
 initializeFirebaseAuthentication();
@@ -15,6 +15,7 @@ const useFirebase = () => {
 
 	const auth = getAuth();
 	const googleProvider = new GoogleAuthProvider();
+	const githubProvider = new GithubAuthProvider();
 
 	// handle user name change
 	const handleUserNameChange = e => {
@@ -75,6 +76,11 @@ const useFirebase = () => {
 		return signInWithPopup(auth, googleProvider);
 	}
 
+	// sign in using github
+	const signInUsingGithub = () => {
+		return signInWithPopup(auth, githubProvider);
+	}
+
 	// observe user auth status
 	useEffect(() => {
 		const unsubscribed = onAuthStateChanged(auth, user => {
@@ -114,6 +120,7 @@ const useFirebase = () => {
 		registerWithEmailPassword,
 		loginUsingEmailPassword,
 		signInUsingGoogle,
+		signInUsingGithub,
 		setUser,
 		user,
 		authError,
