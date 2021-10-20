@@ -72,18 +72,7 @@ const useFirebase = () => {
 
 	// sign in using google
 	const signInUsingGoogle = () => {
-		signInWithPopup(auth, googleProvider)
-			.then(result => {
-				console.log(result.user);
-				setUser(result.user);
-				setAuthError('');
-			})
-			.catch(error => {
-				console.log(error);
-				setAuthError(error.message);
-			});
-
-		// return signInWithPopup(auth, googleProvider);
+		return signInWithPopup(auth, googleProvider);
 	}
 
 	// observe user auth status
@@ -102,18 +91,15 @@ const useFirebase = () => {
 	// logout function
 	const logOut = () => {
 		setIsLoading(true);
-		signOut(auth)
-			.then(() => {
-				setUser({})
-				setAuthError('');
-			})
-			.catch(error => {
-				console.log(error);
-				setAuthError(error.message);
-			})
-			.finally(() => {
-				setIsLoading(false);
-			});
+		signOut(auth).then(() => {
+			setUser({})
+			setAuthError('');
+		}).catch(error => {
+			console.log(error);
+			setAuthError(error.message);
+		}).finally(() => {
+			setIsLoading(false);
+		});
 	}
 
 	// handle mobile menu toggle
@@ -128,6 +114,7 @@ const useFirebase = () => {
 		registerWithEmailPassword,
 		loginUsingEmailPassword,
 		signInUsingGoogle,
+		setUser,
 		user,
 		authError,
 		isLoading,
