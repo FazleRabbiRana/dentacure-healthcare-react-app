@@ -52,6 +52,7 @@ module.exports = {
   variants: {
     extend: {
       scale: ['active', 'group-hover'],
+      maxHeight: ['hover', 'focus', 'group-hover', 'group-focus'],
       visibility: ['hover', 'focus', 'group-hover', 'group-focus'],
     },
   },

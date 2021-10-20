@@ -35,46 +35,21 @@ const useFirebase = () => {
 	const checkPassRegexp = password => {
 		const passRegex = /^(?=.*[A-Z].*[A-Z])(?=.*[a-zA-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9]).{8,}$/;
 		const result = passRegex.test(password);
-		console.log(password, result);
+		// console.log(password, result);
 		return result;
 	};
 
-	// process login using email and password
-	const loginUsingEmailPassword = () => {
-		setIsLoading(true);
-		signInWithEmailAndPassword(auth, email, password)
-			.then(result => {
-				console.log(result.user);
-				setAuthError('');
-			})
-			.catch(error => {
-				console.log(error);
-				setAuthError(error.message);
-			})
-			.finally(() => {
-				setIsLoading(false);
-			});
-	}
+  // prepare auth error message
+  const prepareAuthErrorMessage = error => {
+    const errorCode = error.code;
+    const output = errorCode.slice(5).replace(/-/g, ' ');
+    // console.log(output);
+    return output;
+  }
 
 	// register new user with email and password
 	const registerWithEmailPassword = () => {
-		// check password
-		if (!checkPassRegexp(password)) {
-			setAuthError('Password is weak. Follow the above instruction.');
-			return;
-		}
-
-		createUserWithEmailAndPassword(auth, email, password)
-			.then(result => {
-				console.log(result.user);
-				setRegisteredUserName();
-				setUser(result.user);
-				setAuthError('');
-			})
-			.catch(error => {
-				console.log(error);
-				setAuthError(error.message);
-			});
+		return createUserWithEmailAndPassword(auth, email, password);
 	}
 
 	// set registered user name
@@ -89,6 +64,23 @@ const useFirebase = () => {
 			.catch(error => {
 				console.log(error);
 				setAuthError(error.message);
+			});
+	}
+
+	// process login using email and password
+	const loginUsingEmailPassword = () => {
+		setIsLoading(true);
+		signInWithEmailAndPassword(auth, email, password)
+			.then(result => {
+				console.log(result.user);
+				setAuthError('');
+			})
+			.catch(error => {
+				const errorMessage = prepareAuthErrorMessage(error);
+				setAuthError(errorMessage);
+			})
+			.finally(() => {
+				setIsLoading(false);
 			});
 	}
 
@@ -121,7 +113,7 @@ const useFirebase = () => {
 		return () => unsubscribed;
 	}, []);
 
-	// logout
+	// logout function
 	const logOut = () => {
 		setIsLoading(true);
 		signOut(auth)
@@ -156,6 +148,10 @@ const useFirebase = () => {
 		logOut,
 		activeToggle,
 		handleActiveToggle,
+		setRegisteredUserName,
+		setAuthError,
+		prepareAuthErrorMessage,
+		checkPassRegexp,
 	}
 }
 
