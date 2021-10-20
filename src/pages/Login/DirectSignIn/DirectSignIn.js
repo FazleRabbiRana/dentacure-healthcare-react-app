@@ -4,7 +4,6 @@ import useAuth from '../../../hooks/useAuth';
 import googleIcon from '../../../images/icons/google.svg';
 import githubIcon from '../../../images/icons/github.svg';
 // import facebookIcon from '../../../images/icons/facebook-circled.svg';
-// import twitterIcon from '../../../images/icons/twitter-circled.svg';
 
 const DirectSignIn = () => {
 	const { 
@@ -52,16 +51,12 @@ const DirectSignIn = () => {
 					Google
 				</button>
 				<button onClick={handleGithubSignIn} className="rounded border shadow-md p-2 sm:px-3 group">
-					<img src={githubIcon} alt="Google" className="block h-8 sm:h-10 mx-auto mb-1 duration-500 rotate-y-360-group-hover" />
+					<img src={githubIcon} alt="GitHub" className="block h-8 sm:h-10 mx-auto mb-1 duration-500 rotate-y-360-group-hover" />
 					GitHub
 				</button>
-				{/* <button className="rounded border shadow-md p-2 sm:px-3 group">
+				{/* <button onClick={handleFacebookSignIn} className="rounded border shadow-md p-2 sm:px-3 group">
 					<img src={facebookIcon} alt="Google" className="block h-8 sm:h-10 mx-auto mb-1 duration-500 rotate-y-360-group-hover" />
 					Facebook
-				</button> */}
-				{/* <button className="rounded border shadow-md p-2 sm:px-3 group">
-					<img src={twitterIcon} alt="Google" className="block h-8 sm:h-10 mx-auto mb-1 duration-500 rotate-y-360-group-hover" />
-					Twitter
 				</button> */}
 			</div>
 		</div>
