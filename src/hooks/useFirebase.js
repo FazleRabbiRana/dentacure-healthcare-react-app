@@ -56,32 +56,18 @@ const useFirebase = () => {
 	const setRegisteredUserName = () => {
 		updateProfile(auth.currentUser, {
 			displayName: userName
-		})
-			.then(result => {
-				console.log(result);
-				setAuthError('');
-			})
-			.catch(error => {
-				console.log(error);
-				setAuthError(error.message);
-			});
+		}).then(() => {
+			setAuthError('');
+		}).catch(error => {
+			console.log(error);
+			const errorMessage = prepareAuthErrorMessage(error);
+			setAuthError(errorMessage);
+		});
 	}
 
 	// process login using email and password
 	const loginUsingEmailPassword = () => {
-		setIsLoading(true);
-		signInWithEmailAndPassword(auth, email, password)
-			.then(result => {
-				console.log(result.user);
-				setAuthError('');
-			})
-			.catch(error => {
-				const errorMessage = prepareAuthErrorMessage(error);
-				setAuthError(errorMessage);
-			})
-			.finally(() => {
-				setIsLoading(false);
-			});
+		return signInWithEmailAndPassword(auth, email, password);
 	}
 
 	// sign in using google
@@ -152,6 +138,7 @@ const useFirebase = () => {
 		setAuthError,
 		prepareAuthErrorMessage,
 		checkPassRegexp,
+		setIsLoading,
 	}
 }
 

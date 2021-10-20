@@ -1,14 +1,38 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import DirectSignIn from '../DirectSignIn/DirectSignIn';
 
 const Login = () => {
-	const { handleEmailChange, handlePasswordChange, loginUsingEmailPassword, user, authError } = useAuth();
+	const {
+		handleEmailChange,
+		handlePasswordChange,
+		loginUsingEmailPassword,
+		prepareAuthErrorMessage,
+		setAuthError,
+		authError,
+		user,
+		setIsLoading,
+	} = useAuth();
 
+	const history = useHistory();
+	const location = useLocation();
+	const redirect_uri = location.state?.from || '/';
+
+	// handle login form submit
 	const handleLoginFormSubmit = e => {
 		e.preventDefault();
-		loginUsingEmailPassword();
+
+		setIsLoading(true);
+		loginUsingEmailPassword().then(() => {
+			setAuthError('');
+			history.push(redirect_uri);
+		}).catch(error => {
+			const errorMessage = prepareAuthErrorMessage(error);
+			setAuthError(errorMessage);
+		}).finally(() => {
+			setIsLoading(false);
+		})
 	}
 
 	return (
