@@ -17,7 +17,7 @@ const DirectSignIn = () => {
 
 	const history = useHistory();
 	const location = useLocation();
-	const redirect_uri = location.state?.from || '/home';
+	const redirect_uri = location.state?.from || '/';
 
 	// handle google sign in
 	const handleGoogleSignIn = () => {
