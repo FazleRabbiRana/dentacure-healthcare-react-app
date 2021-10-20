@@ -12,7 +12,7 @@ const Services = () => {
 					Dental services
 					<span className="absolute top-1/4 left-4 transform scale-200 origin-center-left opacity-10 text-my-black z-1n">Services</span>
 				</h2>
-				<div className="all-services grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8">
+				<div className="all-services grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-10">
 					{
 						services.map(service => <Service key={service.id} service={service} />)
 					}
