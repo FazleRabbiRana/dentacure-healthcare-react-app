@@ -22,7 +22,7 @@
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-bold text-my-black;
-  }
+  } 
   .logo {
     @apply inline-block w-40 md:w-56;
   }
